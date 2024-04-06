@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Outfit", sans-serif !important;
+  background-color: #14181e; /* Default background color */
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #030712; /* Dark mode background color */
+  }
+}
