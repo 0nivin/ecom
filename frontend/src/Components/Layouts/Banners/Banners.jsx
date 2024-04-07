@@ -22,7 +22,7 @@ function Banners() {
         autoplay={true}
         pagination={true}
         scrollbar={{ draggable: true }}
-        className="relative w-full h-screen overflow-hidden rounded-box"
+        className="relative w-full h-fit md:h-screen overflow-hidden"
       >
         <SwiperSlide>
           <img

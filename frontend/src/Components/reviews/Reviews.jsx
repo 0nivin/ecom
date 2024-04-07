@@ -6,7 +6,7 @@ const Reviews = () => {
       <div className="w-full border-t border-b border-gray-200 px-5 py-16 md:py-24 text-gray-900 dark:text-gray-200 mt-4">
         <div className="w-full max-w-6xl mx-auto">
           <div className="text-center max-w-xl mx-auto">
-            <h1 className="text-6xl md:text-7xl font-bold mb-5 text-gray-900 dark:text-gray-50">
+            <h1 className="text-6xl md:text-7xl font-light mb-5 text-gray-900 dark:text-gray-50">
               What people <br />
               are saying.
             </h1>

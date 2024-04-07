@@ -10,3 +10,8 @@
 frontend/firebase.config.js
 frontend/firebase-backup.js
 .env.production
+/backend/.env.local
+/backend/.env.development.local
+/backend/.env.test.local
+/backend/.env.production.local
+/backend/.env*

@@ -153,14 +153,14 @@ const ProductDetails = () => {
               {/* name - start */}
               <div className="mb-2 md:mb-3">
                 {/* <span className="mb-0.5 inline-block">{product.category}</span> */}
-                <h2 className="text-2xl font-bold  lg:text-3xl">
+                <h2 className="text-2xl font-medium  lg:text-3xl">
                   {product?.name}
                 </h2>
               </div>
               {/* name - end */}
               {/* rating - start */}
               <div className="mb-6 flex items-center gap-3 md:mb-10">
-                <div className="flex h-7 items-center gap-1 rounded-full bg-red-500 px-2 text-white">
+                <div className="flex h-7 items-center gap-1 rounded-full bg-gradient-to-tr from-yellow-600 to-yellow-400 px-2 text-white">
                   <span className="text-sm">{product?.ratings}</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -273,7 +273,7 @@ const ProductDetails = () => {
               <div className="flex gap-2.5">
                 <button
                   onClick={setItemToCart}
-                  className="inline-block flex-1 rounded-lg bg-emerald-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-teal-400 focus-visible:ring active:bg-teal-700 sm:flex-none md:text-base"
+                  className="inline-block flex-1 rounded-lg bg-emerald-600 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-teal-400 focus-visible:ring active:bg-teal-700 sm:flex-none md:text-base"
                 >
                   Add to cart
                 </button>
