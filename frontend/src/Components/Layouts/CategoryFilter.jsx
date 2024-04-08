@@ -22,6 +22,7 @@ const CategoryFilter = () => {
   }, [navigate, searchParams]);
 
   const handleClick = (checkbox) => {
+    console.log(checkbox);
     const checkboxes = document.getElementsByName(checkbox.name);
     setActiveCategory(checkbox.value);
     checkboxes.forEach((item) => {
@@ -81,7 +82,7 @@ const CategoryFilter = () => {
                       type="checkbox"
                       name="category"
                       value={category}
-                      class="checkbox checkbox-primary"
+                      className="checkbox checkbox-primary"
                       checked={category === activeCategory}
                       // defaultChecked={defaultCheckHandler("category", category)}
                       onClick={(e) => handleClick(e.target)}

@@ -18,7 +18,7 @@ const PaymentMethods = ({ onMethodSelection }) => {
   const { user } = useSelector((state) => state.auth);
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const [paymentLoading, setPaymentLoading] = useState(false);
-  const [createNewOrder, { error, isSuccess }] = useCreateNewOrderMutation();
+  const [createNewOrder, { error, isSuccess, isLoading:codLoading }] = useCreateNewOrderMutation();
 
   const dispatch = useDispatch();
 
@@ -31,7 +31,7 @@ const PaymentMethods = ({ onMethodSelection }) => {
     if (checkoutData) {
       // const { totalPrice } = caluclateOrderCost(cartItems);
       // window.location.href = checkoutData?.url;
-      console.log(checkoutData);
+      // console.log(checkoutData);
       checkoutHandler(checkoutData);
     }
 
@@ -42,7 +42,10 @@ const PaymentMethods = ({ onMethodSelection }) => {
 
   useEffect(() => {
     if (error) {
-      toast.error(error?.data);
+      if (!user._id) {
+        toast("Error getting user info")
+      }
+      toast.error(error.data.message);
       console.error("error", " ", error);
     }
 
@@ -88,8 +91,8 @@ const PaymentMethods = ({ onMethodSelection }) => {
         currency: "INR",
         itemsPrice: totalPrice,
       };
-      console.log("Order-items", "", orderData);
-      console.log("items-price", "", itemsPrice);
+      // console.log("Order-items", "", orderData);
+      // console.log("items-price", "", itemsPrice);
       stripeCheckoutSession(orderData);
     }
   };
@@ -127,7 +130,6 @@ const PaymentMethods = ({ onMethodSelection }) => {
           taxPrice,
         };
 
-        console.log(payload, "response-razorpay");
 
         // Make POST request to backend endpoint
         fetch("http://localhost:4000/api/v1/payment/webhook", {
@@ -200,6 +202,7 @@ const PaymentMethods = ({ onMethodSelection }) => {
             type="button"
             className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-800 dark:bg-white dark:border-gray-700 dark:text-gray-900 dark:hover:bg-gray-200 me-2 mb-2"
             onClick={() => handleMethod("cod")}
+            disabled={codLoading}
           >
             Pay on Delivey{" "}
             <span className="ms-2">

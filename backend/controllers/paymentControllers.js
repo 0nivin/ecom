@@ -25,13 +25,13 @@ export const stripeCheckoutSession = catchAsyncErrors(
     const body = req?.body;
     const orderItems = body?.orderItems;
     const currency = "INR"; // Assuming the currency is INR for Razorpay
-
     const options = {
-      amount: body?.itemsPrice * 100, // Razorpay expects amount in paisa, hence * 100
+      amount: parseInt(body?.itemsPrice) * 100, // Convert itemsPrice to integer before multiplying by 100
       currency: currency,
       receipt: `order_${Date.now()}`,
       payment_capture: 1 // Auto-capture payment
     };
+    
 
     try {
       const order = await razorpay.orders.create(options);
