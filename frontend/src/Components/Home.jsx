@@ -35,7 +35,7 @@ function Home() {
 
   useEffect(() => {
     if (isError) {
-      toast.error("Error Getting Products try refreshing the page");
+      toast.error("Error Getting Products");
     }
   }, [error?.data?.message, isError]);
 
@@ -54,7 +54,7 @@ function Home() {
         })
         .catch(() => {
           setIsLoading(false);
-          toast.error("Error Getting Products try refreshing the page");
+          toast.error("Error Getting Products");
         });
     }
   }, [category, refetch]);
